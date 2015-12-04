@@ -90,7 +90,8 @@ function parseEnum(value, type) {
                 return candObj;
         }
     }
-    throw "Value " + value + " (0x" + dec2hex(value) + ") is not part of " + type.name;
+    return { "name": "_Unknown_0x"+dec2hex_print(value), "value":value};
+    // throw "Value " + value + " (0x" + dec2hex(value) + ") is not part of " + type.name;
 }
 
 function cleanHex(data) {

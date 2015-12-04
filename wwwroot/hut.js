@@ -449,6 +449,7 @@ var HIDUsagePage = {
     PointOfSale:            { value: 0x8F, usage: null, name: "Reserved Point of Sale" },
     Camera:                 { value: 0x90, usage: null, name: "Camera" },
     VendorDefined:          { value: 0xFF, usage: HIDUsageVendor, name: "Vendor Defined" },
+    VendorDefinedFF01:      { value: 0xFF01, usage: HIDUsageVendor, name: "Vendor Defined 0xFF01" },
     name: "HIDUsagePage"
 };
 
