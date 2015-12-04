@@ -47,6 +47,9 @@ Reports.prototype.show = function (reports) {
         elem = document.createElement('P');
         elem.className = "Type";
         elem.textContent = report.type.name + " report";
+        if(report.id > 0) {
+            elem.textContent += " (ID: " + report.id + ")";
+        }
         reportElem.appendChild(elem);
 
         if (report.getID() != null) {
