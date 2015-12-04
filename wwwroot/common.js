@@ -59,6 +59,16 @@ function dec2hex(dec, padToLength) {
     return ret;
 }
 
+function dec2hex_print(dec, padToLength) {
+    var ret = dec.toString(16).toUpperCase();
+    if (padToLength) {
+        while (ret.length < padToLength)
+            ret = "0" + ret;
+    }
+    // add leading zero:
+    ret = ret.replace(/^(.(..)*)$/, "0$1");
+    return ret;
+}
 function hex2dec(hex) {
     // add leading zero:
     hex = hex.replace(/^(.(..)*)$/, "0$1");

@@ -104,7 +104,7 @@ var HIDUsageVendor = {
     name: "HIDUsageVendor"
 };
 for (var vendor = 0; vendor <= 65535; vendor++)
-	HIDUsageVendor["Vendor" + dec2hex(vendor, 4)] = { value: vendor, name: "Vendor " + dec2hex(vendor, 4) };
+	HIDUsageVendor["Vendor" + dec2hex_print(vendor, 4)] = { value: vendor, name: "Vendor " + dec2hex_print(vendor, 4) };
 
 var HIDUsageLED = {
     Undefined: { value: 0x00, name: "Undefined" },
