@@ -49,10 +49,23 @@ function dec2hex(dec, padToLength) {
         while (ret.length < padToLength)
             ret = "0" + ret;
     }
+    // add leading zero:
+    ret = ret.replace(/^(.(..)*)$/, "0$1");
+    // to little-endian:
+    var a = ret.match(/../g);
+    a.reverse();
+    ret = a.join("");
+    // console.log("dec2hex(" + dec + ") = " + ret);
     return ret;
 }
 
 function hex2dec(hex) {
+    // add leading zero:
+    hex = hex.replace(/^(.(..)*)$/, "0$1");
+    // to little-endian:
+    var a = hex.match(/../g);
+    a.reverse();
+    hex = a.join("");
     return parseInt(hex, 16);
 }
 
