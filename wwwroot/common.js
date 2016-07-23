@@ -49,10 +49,33 @@ function dec2hex(dec, padToLength) {
         while (ret.length < padToLength)
             ret = "0" + ret;
     }
+    // add leading zero:
+    ret = ret.replace(/^(.(..)*)$/, "0$1");
+    // to little-endian:
+    var a = ret.match(/../g);
+    a.reverse();
+    ret = a.join("");
+    // console.log("dec2hex(" + dec + ") = " + ret);
     return ret;
 }
 
+function dec2hex_print(dec, padToLength) {
+    var ret = dec.toString(16).toUpperCase();
+    if (padToLength) {
+        while (ret.length < padToLength)
+            ret = "0" + ret;
+    }
+    // add leading zero:
+    ret = ret.replace(/^(.(..)*)$/, "0$1");
+    return ret;
+}
 function hex2dec(hex) {
+    // add leading zero:
+    hex = hex.replace(/^(.(..)*)$/, "0$1");
+    // to little-endian:
+    var a = hex.match(/../g);
+    a.reverse();
+    hex = a.join("");
     return parseInt(hex, 16);
 }
 
@@ -67,7 +90,8 @@ function parseEnum(value, type) {
                 return candObj;
         }
     }
-    throw "Value " + value + " (0x" + dec2hex(value) + ") is not part of " + type.name;
+    return { "name": "_Unknown_0x"+dec2hex_print(value), "value":value};
+    // throw "Value " + value + " (0x" + dec2hex(value) + ") is not part of " + type.name;
 }
 
 function cleanHex(data) {
